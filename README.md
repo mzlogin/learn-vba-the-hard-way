@@ -23,6 +23,7 @@
         * [创建一个 EXCEL 工作簿对象](#创建一个-excel-工作簿对象)
         * [打开/保存/关闭工作簿](#打开保存关闭工作簿)
         * [拷贝文件](#拷贝文件)
+        * [拷贝文件夹](#拷贝文件夹)
         * [删除文件夹下的所有文件](#删除文件夹下的所有文件)
         * [创建文件夹](#创建文件夹)
         * [判断文件夹是否存在](#判断文件夹是否存在)
@@ -148,6 +149,14 @@ ThisWorkbook.SaveCopyAs FileName:="D:\1.xls"
 oldfile = ThisWorkBook.Path & "/old.xlsx"
 newfile = ThisWorkBook.Path & "/new.xlsx"
 FileCopy oldfile, newfile
+```
+
+#### 拷贝文件夹
+
+```vbnet
+Set fso = CreateObject("Scripting.FileSystemObject")
+
+fso.copyfolder srcDir, dstDir
 ```
 
 #### 删除文件夹下的所有文件
