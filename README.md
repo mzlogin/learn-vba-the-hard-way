@@ -35,6 +35,7 @@
         * [在单元格里回车 / 换行](#在单元格里回车--换行)
         * [隐藏行](#隐藏行)
         * [单元格内容为纯文本](#单元格内容为纯文本)
+        * [设置单元格公式](#设置单元格公式)
     * [选择](#选择)
         * [引用单元格 / 区域](#引用单元格--区域)
         * [选中单元格 / 区域](#选中单元格--区域)
@@ -44,6 +45,7 @@
     * [语言基础](#语言基础)
         * [String to Integer、Double](#string-to-integerdouble)
         * [字符串分割/获取数组长度](#字符串分割获取数组长度)
+        * [字符串替换](#字符串替换)
         * [判断单元格是否为空](#判断单元格是否为空)
         * [退出](#退出)
 * [参考](#参考)
@@ -261,6 +263,14 @@ MyWorkSheet.Rows(i).Hidden = True
 sheet.Cells(m, n).NumberFormatLocal = "@"
 ```
 
+#### 设置单元格公式
+
+```vbnet
+For Each cel In ActiveSheet.Range("C1:C10")
+    cel.Formula = "=SUBSTITUTE(A" & cel.Row() & ", ""."", CHAR(10) & ""."")"
+Next
+```
+
 ### 选择
 
 #### 引用单元格 / 区域
@@ -350,6 +360,12 @@ CDbl(MyWorkSheet.Cells(1,7))
 Dim arr() As String
 arr() = Split(ws.Cells(a, b).Value, "-")
 alen = UBound(arr) - LBound(arr) + 1
+```
+
+#### 字符串替换
+
+```vbnet
+s1 = Replace(s2, ".", Chr(10) & ".")
 ```
 
 #### 判断单元格是否为空
